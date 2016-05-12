@@ -1,8 +1,6 @@
 package group.b3;
 
-/**
- * Created by henkv on 2016-05-12.
- */
+
 public class Customer extends User {
     private float balance;
 
