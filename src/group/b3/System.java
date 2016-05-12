@@ -1,6 +1,7 @@
 package group.b3;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class System {
     private ArrayList<User> users;
@@ -25,8 +26,19 @@ public class System {
         return searchedUser;
     }
 
-    public void addFLight(Flight flight){
+    public void addFLight(Flight flight)
+    {
         this.flightManager.addFlight(flight);
+    }
+
+    public void createTicet(String message, Customer customer)
+    {
+
+    }
+
+    public ArrayList<Flight> sertchFlights(String destination, String origin, Date start, Date end, int nrOfSeats)
+    {
+        
     }
 
 
