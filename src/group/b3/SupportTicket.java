@@ -2,9 +2,7 @@ package group.b3;
 
 import java.util.Date;
 
-/**
- * Created by hannahlovberg on 2016-05-12.
- */
+
 public class SupportTicket {
     private String message;
     private Customer owner;

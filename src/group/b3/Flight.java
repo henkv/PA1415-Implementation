@@ -1,9 +1,7 @@
 package group.b3;
 
 import java.util.Date;
-/**
- * Created by henkv on 2016-05-12.
- */
+
 public class Flight {
     private long uid;
     private int totalSeats;

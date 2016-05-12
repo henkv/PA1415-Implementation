@@ -2,9 +2,6 @@ package group.b3;
 
 import java.util.ArrayList;
 
-/**
- * Created by hannahlovberg on 2016-05-12.
- */
 public class System {
     private ArrayList<User> users;
     private FlightManager flightManager;
