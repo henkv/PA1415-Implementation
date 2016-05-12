@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class System {
     private ArrayList<User> users;
+    private FlightManager flightManager;
 
     public System(ArrayList<User> users) {
         this.users = users;
@@ -28,8 +29,7 @@ public class System {
     }
 
     public void addFLight(Flight flight){
-
-
+        this.flightManager.addFlight(flight);
     }
 
 
