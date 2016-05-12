@@ -1,12 +1,11 @@
 package group.b3;
 
 import java.util.ArrayList;
+import java.util.Date;
 
-/**
- * Created by hannahlovberg on 2016-05-12.
- */
 public class System {
     private ArrayList<User> users;
+    private FlightManager flightManager;
 
     public System(ArrayList<User> users) {
         this.users = users;
@@ -25,6 +24,21 @@ public class System {
         }
 
         return searchedUser;
+    }
+
+    public void addFLight(Flight flight)
+    {
+        this.flightManager.addFlight(flight);
+    }
+
+    public void createTicet(String message, Customer customer)
+    {
+
+    }
+
+    public ArrayList<Flight> sertchFlights(String destination, String origin, Date start, Date end, int nrOfSeats)
+    {
+        
     }
 
 
