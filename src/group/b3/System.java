@@ -27,5 +27,10 @@ public class System {
         return searchedUser;
     }
 
+    public void addFLight(Flight flight){
+
+
+    }
+
 
 }
