@@ -6,6 +6,10 @@ package group.b3;
 public class Customer extends User {
     private float balance;
 
+    public Customer() {
+        this.balance = 0;
+    }
+
     public void addMoney(float amount)
     {
         balance += amount;
