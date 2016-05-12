@@ -11,7 +11,7 @@ public class Staff {
     }
 
     public void setSalary(float salary){
-        salary = salary;
+        this.salary = salary;
     }
 
 }
