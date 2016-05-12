@@ -13,8 +13,19 @@ public class System {
     }
 
     public User getUser(String username, String password){
-        for (int i= 0; i < users.size(); i++){
+
+        User searchedUser = null;
+
+        for (int i= 0; i < users.size() && searchedUser == null; i++){
+
+            if (username == users.get(i).getName() && password == users.get(i).getPassword()){
+                searchedUser = users.get(i);
+            }
 
         }
+
+        return searchedUser;
     }
+
+
 }
