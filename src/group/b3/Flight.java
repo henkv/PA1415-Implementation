@@ -1,5 +1,6 @@
 package group.b3;
 
+import java.util.Date;
 /**
  * Created by henkv on 2016-05-12.
  */
@@ -9,17 +10,9 @@ public class Flight {
     private int reservedSeats;
     private String destination;
     private String origin;
-    private DateTime departure;
-    private DateTime arrival;
+    private Date departure;
+    private Date arrival;
     private float baseCost;
-
-    public long getUid() {
-        return uid;
-    }
-
-    public void setUid(long uid) {
-        this.uid = uid;
-    }
 
     public int getTotalSeats() {
         return totalSeats;
@@ -53,19 +46,19 @@ public class Flight {
         this.origin = origin;
     }
 
-    public DateTime getDeparture() {
+    public Date getDeparture() {
         return departure;
     }
 
-    public void setDeparture(DateTime departure) {
+    public void setDeparture(Date departure) {
         this.departure = departure;
     }
 
-    public DateTime getArrival() {
+    public Date getArrival() {
         return arrival;
     }
 
-    public void setArrival(DateTime arrival) {
+    public void setArrival(Date arrival) {
         this.arrival = arrival;
     }
 
