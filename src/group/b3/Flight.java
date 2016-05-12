@@ -5,14 +5,35 @@ import java.util.Date;
  * Created by henkv on 2016-05-12.
  */
 public class Flight {
+    private static long currentUid = 0;
     private long uid;
-    private int totalSeats;
-    private int reservedSeats;
-    private String destination;
     private String origin;
+    private String destination;
+    private float baseCost;
+    private int totalSeats;
     private Date departure;
     private Date arrival;
-    private float baseCost;
+    private int reservedSeats;
+
+    public Flight(String origin, String destination, float baseCost, int totalSeats, Date departure, Date arrival) {
+        this.uid = currentUid++;
+        this.origin = origin;
+        this.destination = destination;
+        this.baseCost = baseCost;
+        this.totalSeats = totalSeats;
+        this.departure = departure;
+        this.arrival = arrival;
+        this.reservedSeats = 0;
+    }
+
+    public float calculateCost() {
+        return baseCost + baseCost * (reservedSeats / totalSeats);
+    }
+
+    public int nrOfemptySeats()
+    {
+        return totalSeats - reservedSeats;
+    }
 
     public int getTotalSeats() {
         return totalSeats;
