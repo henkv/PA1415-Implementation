@@ -9,6 +9,7 @@ public class LoginUI extends UI{
     public LoginUI(System system) {
         super(system);
         this.contentPane = super.getContentPane();
+        this.contentPane.setLayout(new BoxLayout(this.contentPane, BoxLayout.Y_AXIS));
 
         JTextField username = new JTextField();
         JTextField password = new JTextField();
