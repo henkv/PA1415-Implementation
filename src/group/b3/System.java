@@ -7,8 +7,9 @@ public class System {
     private ArrayList<User> users;
     private FlightManager flightManager;
 
-    public System(ArrayList<User> users) {
-        this.users = users;
+    public System()
+    {
+
     }
 
     public User getUser(String username, String password){
@@ -26,19 +27,19 @@ public class System {
         return searchedUser;
     }
 
-    public void addFLight(Flight flight)
+    public void addFlight(Flight flight)
     {
         this.flightManager.addFlight(flight);
     }
 
-    public void createTicet(String message, Customer customer)
+    public void createTicket(String message, Customer customer)
     {
 
     }
 
-    public ArrayList<Flight> sertchFlights(String destination, String origin, Date start, Date end, int nrOfSeats)
+    public ArrayList<Flight> searchFlights(String destination, String origin, Date start, Date end, int nrOfSeats)
     {
-        
+        return null;
     }
 
 
