@@ -1,27 +1,34 @@
 package group.b3;
 
 
+import javax.swing.*;
+
 public class CustomerHomeUI extends UI
 {
-    private Customer user;
+    private JPanel contentPanel;
+    private JButton searchFlightsButton;
+    private JButton logOutButton;
+    private JButton checkBalanceButton;
 
-    public CustomerHomeUI(System system, Customer user) {
-        super(system);
-        this.user = user;
+    public CustomerHomeUI()
+    {
+        this.searchFlightsButton.addActionListener(e -> openSearchFlight());
+        this.logOutButton.addActionListener(e -> logOut());
     }
 
-    public void openSearchFlight()
-    {
-
+    @Override
+    JPanel getContentPanel() {
+        return this.contentPanel;
     }
 
-    public void openBookFlight()
+    private void openSearchFlight()
     {
-
+        getSystem().setUI(new SearchFlightUI());
     }
 
-    public void logOut()
+    private void logOut()
     {
-
+        getSystem().setActiveUser(null);
+        getSystem().setUI(new LoginUI());
     }
 }

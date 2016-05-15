@@ -14,8 +14,7 @@ public class AddFlightUI extends UI{
     private JTextField textField4;
 
     @Override
-    public JPanel getContentPanel()
-    {
+    public JPanel getContentPanel() {
         return contentPanel;
     }
 }

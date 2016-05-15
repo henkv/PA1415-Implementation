@@ -55,7 +55,6 @@ public class FlightSystem {
         return null;
     }
 
-
     void setUI(UI ui) {
         ui.setSystem(this);
         uiFrame.setUI(ui);

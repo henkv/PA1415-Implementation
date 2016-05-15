@@ -34,6 +34,11 @@ public class LoginUI extends UI {
                 getSystem().setActiveUser(user);
                 getSystem().setUI(new StaffHomeUI());
             }
+            else
+            {
+                getSystem().setActiveUser(user);
+                getSystem().setUI(new CustomerHomeUI());
+            }
         }
     }
 
