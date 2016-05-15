@@ -3,11 +3,11 @@ package group.b3;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class System {
+public class FlightSystem {
     private ArrayList<User> users;
     private FlightManager flightManager;
 
-    public System()
+    public FlightSystem()
     {
 
     }

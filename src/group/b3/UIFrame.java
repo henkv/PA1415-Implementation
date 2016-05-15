@@ -25,7 +25,7 @@ class UIFrame
     public void setUI(UI ui)
     {
         frame.getContentPane().removeAll();
-        frame.add(ui.getContentPane(), BorderLayout.CENTER);
+        frame.add(ui.getContentPanel(), BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
     }
