@@ -10,10 +10,6 @@ public class StaffHomeUI extends UI
         this.user = user;
     }
 
-    public void OpenBookFlightUI()
-    {
-
-    }
 
     public void OpenAddFlightUI()
     {

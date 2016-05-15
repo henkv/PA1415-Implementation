@@ -15,6 +15,11 @@ public class CustomerHomeUI extends UI
 
     }
 
+    public void openBookFlight()
+    {
+
+    }
+
     public void logOut()
     {
 
