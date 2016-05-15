@@ -9,25 +9,32 @@ public class FlightSystem {
     private FlightManager flightManager;
     private UIFrame uiFrame;
 
-    public FlightSystem()
+    FlightSystem()
     {
+        users = new ArrayList<>();
+        users.add(new Staff("staff", "test", 0));
+        users.add(new Customer("customer", "test", 0));
+
         uiFrame = new UIFrame();
     }
 
-    public void setActiveUser(User activeUser) {
+    void setActiveUser(User activeUser)
+    {
         this.activeUser = activeUser;
     }
 
-    public User getUser(String username, String password){
-
+    User getUser(String username, String password)
+    {
         User searchedUser = null;
 
-        for (int i= 0; i < users.size() && searchedUser == null; i++){
+        for (int i= 0; i < users.size() && searchedUser == null; i++)
+        {
+            User user = users.get(i);
 
-            if (username == users.get(i).getName() && password == users.get(i).getPassword()){
-                searchedUser = users.get(i);
+            if (username.equalsIgnoreCase(user.getName()) && password.equals(user.getPassword()) )
+            {
+                searchedUser = user;
             }
-
         }
 
         return searchedUser;
@@ -49,7 +56,7 @@ public class FlightSystem {
     }
 
 
-    public void setUI(UI ui) {
+    void setUI(UI ui) {
         ui.setSystem(this);
         uiFrame.setUI(ui);
     }
