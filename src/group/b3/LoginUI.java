@@ -21,7 +21,16 @@ public class LoginUI extends UI {
 
     private void logIn()
     {
+        User user = getSystem().getUser(nameField.getText(), passwordField.getText());
 
+        if (user != null)
+        {
+            if (user instanceof Staff)
+            {
+                getSystem().setActiveUser(user);
+                getSystem().setUI(new AddFlightUI());
+            }
+        }
     }
 
 }

@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class FlightSystem {
+    private User activeUser;
     private ArrayList<User> users;
     private FlightManager flightManager;
+    private UIFrame uiFrame;
 
     public FlightSystem()
     {
+        uiFrame = new UIFrame();
+    }
 
+    public void setActiveUser(User activeUser) {
+        this.activeUser = activeUser;
     }
 
     public User getUser(String username, String password){
@@ -43,4 +49,8 @@ public class FlightSystem {
     }
 
 
+    public void setUI(UI ui) {
+        ui.setSystem(this);
+        uiFrame.setUI(ui);
+    }
 }

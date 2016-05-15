@@ -3,31 +3,26 @@ package group.b3;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by henkv on 2016-05-13.
- */
 
-class UIFrame
+class UIFrame extends JFrame
 {
-    private JFrame frame;
     private UI activeUI;
 
     UIFrame()
     {
-        frame = new JFrame();
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout());
-        frame.setSize(500,500);
-        frame.setVisible(true);
+       this.setLocationRelativeTo(null);
+       this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+       this.setLayout(new BorderLayout());
+       this.setSize(500,500);
+       this.setVisible(true);
     }
 
-    public void setUI(UI ui)
+    void setUI(UI ui)
     {
-        frame.getContentPane().removeAll();
-        frame.add(ui.getContentPanel(), BorderLayout.CENTER);
-        frame.revalidate();
-        frame.repaint();
+        this.getContentPane().removeAll();
+        this.add(ui.getContentPanel(), BorderLayout.CENTER);
+        this.revalidate();
+        this.repaint();
     }
 
 }

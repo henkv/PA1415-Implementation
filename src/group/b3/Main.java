@@ -13,13 +13,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        FlightSystem system = new FlightSystem();
-        UIFrame uiFrame = new UIFrame();
-        LoginUI loginUI = new LoginUI();
-        AddFlightUI addFlightUI = new AddFlightUI();
-
-        uiFrame.setUI(loginUI);
-        sleep(1000);
-        uiFrame.setUI(addFlightUI);
+        FlightSystem flightSystem = new FlightSystem();
+        flightSystem.setUI(new LoginUI());
     }
 }
