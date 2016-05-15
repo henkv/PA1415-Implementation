@@ -1,12 +1,16 @@
 package group.b3;
 
 
+import java.util.Date;
+
 public class Booking {
     private long uid;
     private Customer owner;
     private Flight flight;
     private float cost;
     private int nrOfSeats;
+    private Date created;
+
 
     public Booking(Customer owner, Flight flight, float cost, int nrOfSeats) {
         //this.uid = uid;
@@ -14,6 +18,7 @@ public class Booking {
         this.flight = flight;
         this.cost = cost;
         this.nrOfSeats = nrOfSeats;
+        this.created = new Date();
     }
 
     public long getUid() {
@@ -54,5 +59,13 @@ public class Booking {
 
     public void setNrOfSeats(int nrOfSeats) {
         this.nrOfSeats = nrOfSeats;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
 }

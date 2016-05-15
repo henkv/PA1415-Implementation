@@ -1,9 +1,5 @@
 package group.b3;
 
-import javax.swing.*;
-
-import static java.lang.Thread.sleep;
-
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {

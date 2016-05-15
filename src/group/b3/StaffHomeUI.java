@@ -2,9 +2,6 @@ package group.b3;
 
 import javax.swing.*;
 
-/**
- * Created by henkv on 2016-05-15.
- */
 public class StaffHomeUI extends UI
 {
     private JButton addFlightButton;
@@ -16,7 +13,10 @@ public class StaffHomeUI extends UI
     {
 
     }
+    public void OpenAddFlightUI()
+    {
 
+    }
     @Override
     JPanel getContentPanel()
     {

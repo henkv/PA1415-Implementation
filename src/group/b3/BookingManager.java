@@ -6,12 +6,18 @@ import java.util.Date;
 public class BookingManager {
     public ArrayList<Booking> bookings;
 
-    public float getRevenu(Date from, Date to)
+    public float getRevenue(Date from, Date to)
     {
         float revenue = 0;
         for (int i = 0; i < bookings.size(); i++)
         {
-            revenue += bookings.get(i).getCost();
+            Date testBooking = bookings.get(i).getCreated();
+
+            if(from.before(testBooking))
+            {
+                revenue += bookings.get(i).getCost();
+            }
+
         }
         return revenue;
     }
