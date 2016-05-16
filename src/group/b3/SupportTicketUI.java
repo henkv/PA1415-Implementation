@@ -9,24 +9,26 @@ public class SupportTicketUI extends UI{
     private JButton backButton;
     private JButton submitButton;
     private JFormattedTextField ticket;
+    private String ticketBox;
 
     public SupportTicketUI()
 
     {
-        String save = "HEJEJEJ";
+        ticketBox = "Test ticket, plz respond"; //ladda från fil
         submitButton.addActionListener(e -> confirm());
         backButton.addActionListener(e -> back());
-        ticket.setText(save);
+        ticket.setText(ticketBox);
     }
 
     public void back()
     {
-
+        getSystem().setUI(new CustomerHomeUI());
     }
 
     public void confirm()
     {
-
+        //save text in string save
+        getSystem().setUI(new CustomerHomeUI());
     }
 
     @Override
