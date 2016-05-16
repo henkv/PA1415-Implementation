@@ -39,6 +39,11 @@ public class LoginUI extends UI {
                 getSystem().setActiveUser(user);
                 getSystem().setUI(new CustomerHomeUI());
             }
+
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(contentPanel, "Invalid username or password!");
         }
     }
 
