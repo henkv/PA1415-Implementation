@@ -2,6 +2,7 @@ package group.b3;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 
 public class FlightManager {
     public ArrayList<Flight> flights;
@@ -17,21 +18,22 @@ public class FlightManager {
         flights.add(flight);
     }
 
-    public ArrayList<Flight> searchFlights(String destination, String origin){
-        ArrayList<Flight> availableFlights = new ArrayList<Flight>();
+    public Vector<Flight> searchFlights(String destination, String origin, Date from, Date to, int nrOfSeats){
+        Vector<Flight> availableFlights = new Vector<Flight>();
 
-        for (int i = 0; i < flights.size(); i++){
-
-            Flight testFlight = flights.get(i);
-
-            if(testFlight.getDestination() == destination && testFlight.getOrigin() == origin){
+        for (Flight testFlight : flights)
+        {
+            if (testFlight.getDestination().equals(destination) &&
+                    testFlight.getOrigin().equals(origin) &&
+                    testFlight.nrOfemptySeats() >= nrOfSeats &&
+                    testFlight.getDeparture().after(from) &&
+                    testFlight.getDeparture().before(to))
+            {
                 availableFlights.add(testFlight);
             }
         }
 
-
         return availableFlights;
-
     }
 
 

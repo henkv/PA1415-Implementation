@@ -88,4 +88,13 @@ public class Flight {
     public void setBaseCost(float baseCost) {
         this.baseCost = baseCost;
     }
+
+    @Override
+    public String toString() {
+        return "Origin: '" + origin + '\'' +
+               ", Destination: '" + destination + '\'' +
+               ", Departure: " + departure +
+               ", Arrival: " + arrival +
+               ", Cost:" + calculateCost();
+    }
 }

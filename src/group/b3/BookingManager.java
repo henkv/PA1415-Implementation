@@ -4,18 +4,16 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class BookingManager {
-    public ArrayList<Booking> bookings;
+    private ArrayList<Booking> bookings;
 
     public float getRevenue(Date from, Date to)
     {
         float revenue = 0;
-        for (int i = 0; i < bookings.size(); i++)
-        {
-            Date testBooking = bookings.get(i).getCreated();
+        for (Booking booking : bookings) {
+            Date testBooking = booking.getCreated();
 
-            if(from.before(testBooking))
-            {
-                revenue += bookings.get(i).getCost();
+            if (from.before(testBooking)) {
+                revenue += booking.getCost();
             }
 
         }

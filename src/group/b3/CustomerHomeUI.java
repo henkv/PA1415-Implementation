@@ -11,17 +11,16 @@ public class CustomerHomeUI extends UI
     private JButton checkBalanceButton;
     private JButton supportTicket;
 
-    public CustomerHomeUI()
+    CustomerHomeUI()
     {
         this.searchFlightsButton.addActionListener(e -> openSearchFlight());
         this.logOutButton.addActionListener(e -> logOut());
 
         this.supportTicket.addActionListener(e -> openSupportTicket());
     }
-    }
 
     @Override
-    JPanel getContentPanel() {
+    public JPanel getContentPanel() {
         return this.contentPanel;
     }
 

@@ -2,6 +2,7 @@ package group.b3;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Vector;
 
 public class FlightSystem {
     private User activeUser;
@@ -50,7 +51,7 @@ public class FlightSystem {
 
     }
 
-    public ArrayList<Flight> searchFlights(String destination, String origin, Date start, Date end, int nrOfSeats)
+    public Vector<Flight> searchFlights(String destination, String origin, Date start, Date end, int nrOfSeats)
     {
         return null;
     }
