@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class CustomerHomeUI extends UI
 {
-    private FlightSystem flightSystem;
+
     private JPanel contentPanel;
     private JButton searchFlightsButton;
     private JButton logOutButton;
@@ -43,6 +43,7 @@ public class CustomerHomeUI extends UI
     }
 
     private void checkBalance(){
-        JOptionPane.showMessageDialog(contentPanel, "Balance: " + ((Customer)flightSystem.getActiveUser()).getBalance()  + " kr");
+        JOptionPane.showMessageDialog(contentPanel, "Balance: " + ((Customer)getSystem().getActiveUser()).getBalance()  + " kr");
+
     }
 }
