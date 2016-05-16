@@ -2,9 +2,6 @@ package group.b3;
 
 import javax.swing.*;
 
-/**
- * Created by henkv on 2016-05-15.
- */
 public class SearchFlightUI extends UI{
     private JTextField originField;
     private JTextField destinationField;
