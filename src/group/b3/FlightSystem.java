@@ -41,6 +41,10 @@ public class FlightSystem {
         return searchedUser;
     }
 
+    public User getActiveUser(){
+        return this.activeUser;
+    }
+
     public void addFlight(Flight flight)
     {
         this.flightManager.addFlight(flight);
@@ -60,4 +64,6 @@ public class FlightSystem {
         ui.setSystem(this);
         uiFrame.setUI(ui);
     }
+
+
 }
