@@ -1,8 +1,6 @@
 package group.b3;
 
-import javax.print.attribute.standard.Destination;
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
@@ -10,22 +8,20 @@ import java.util.Vector;
 public class SearchFlightUI extends UI{
     private JTextField originField;
     private JTextField destinationField;
-    private JSpinner earliestYear;
-    private JSpinner earliestMonth;
-    private JSpinner earliestDay;
-    private JSpinner latestYear;
-    private JSpinner latestMonth;
-    private JSpinner latestDay;
+    private JSpinner earliestSpinner;
+    private JSpinner latestSpinner;
     private JSpinner seatSpinner;
     private JButton backButton;
     private JButton searchButton;
     private JPanel contentPanel;
     private JButton bookSelectedButton;
     private JList flightList;
-    private ListModel<Flight> flightListModel;
 
     public SearchFlightUI()
     {
+        earliestSpinner.setModel(new SpinnerDateModel(new Date(), null, null, Calendar.YEAR));
+        latestSpinner.setModel(new SpinnerDateModel(new Date(), null, null, Calendar.YEAR));
+
         searchButton.addActionListener(e -> searchFlights());
         backButton.addActionListener(e -> back());
     }
@@ -34,16 +30,22 @@ public class SearchFlightUI extends UI{
     {
         String destination = destinationField.getText();
         String origin = originField.getText();
-        Date from = new Date((int) earliestYear.getValue(), (int)earliestMonth.getValue(), (int)earliestDay.getValue());
-        Date to = new Date((int)latestYear.getValue(), (int)latestMonth.getValue(), (int)latestDay.getValue());
+
+        System.out.println((Date) earliestSpinner.getValue());
+
+
+        Date from = (Date) earliestSpinner.getValue();
+        Date to = (Date) latestSpinner.getValue();
         int nrOfSeats = (int) seatSpinner.getValue();
 
         Vector<Flight> flights = getSystem().searchFlights(destination,origin, from, to, nrOfSeats);
+        flights.forEach(System.out::println);
         flightList.setListData(flights);
 
     }
 
-    private void back() {
+    private void back()
+    {
         getSystem().setUI(new CustomerHomeUI());
     }
 

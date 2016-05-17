@@ -91,8 +91,7 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Origin: '" + origin + '\'' +
-               ", Destination: '" + destination + '\'' +
+        return origin + " -> " + destination + '\t' +
                ", Departure: " + departure +
                ", Arrival: " + arrival +
                ", Cost:" + calculateCost();
