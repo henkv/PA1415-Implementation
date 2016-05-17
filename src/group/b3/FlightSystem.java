@@ -59,7 +59,7 @@ public class FlightSystem {
 
     public Vector<Flight> searchFlights(String destination, String origin, Date start, Date end, int nrOfSeats)
     {
-        return flightManager.searchFlights(destination,origin,start, end, nrOfSeats);
+        return flightManager.searchFlights(destination, origin, start, end, nrOfSeats);
     }
 
     void setUI(UI ui) {

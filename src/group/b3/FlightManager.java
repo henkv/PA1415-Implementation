@@ -1,8 +1,5 @@
 package group.b3;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 public class FlightManager {
     public ArrayList<Flight> flights;
@@ -11,10 +8,15 @@ public class FlightManager {
     {
         flights = new ArrayList<>();
 
-        this.flights.add(new Flight("Karlskrona","Kebnekaise", 100, 50, new Date(2016, 01, 01), new Date(2016, 01, 02)));
-        this.flights.add(new Flight("Stockholm","Göteborg", 100, 50, new Date(2016, 02, 01), new Date(2016, 02, 02)));
-        this.flights.add(new Flight("Ronneby","Kiruna", 100, 50, new Date(2016, 01, 01), new Date(2016, 02, 02)));
+        Calendar cal = Calendar.getInstance();
+        cal.set(2016, 01, 02, 10, 00);
+        Date departure = cal.getTime();
+        cal.set(2016, 01, 02, 20, 00);
+        Date arrival = cal.getTime();
 
+        this.flights.add(new Flight("Karlskrona", "Kebnekaise", 100, 50, departure, arrival));
+        this.flights.add(new Flight("Stockholm", "Göteborg", 100, 50, departure, arrival));
+        this.flights.add(new Flight("Ronneby", "Kiruna", 100, 50, departure, arrival));
     }
 
     public void addFlight(Flight flight){
