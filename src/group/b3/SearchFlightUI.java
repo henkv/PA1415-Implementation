@@ -1,13 +1,12 @@
 package group.b3;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
 
 public class SearchFlightUI extends UI{
-    private JTextField originField;
-    private JTextField destinationField;
     private JSpinner earliestSpinner;
     private JSpinner latestSpinner;
     private JSpinner seatSpinner;
@@ -16,6 +15,7 @@ public class SearchFlightUI extends UI{
     private JPanel contentPanel;
     private JButton bookSelectedButton;
     private JList flightList;
+    private JComboBox destinationBox;
 
     public SearchFlightUI()
     {
@@ -32,19 +32,24 @@ public class SearchFlightUI extends UI{
 
     private void searchFlights()
     {
-        String destination = destinationField.getText();
-        String origin = originField.getText();
+        String destination = (String)destinationBox.getSelectedItem();
 
         System.out.println((Date) earliestSpinner.getValue());
-
 
         Date from = (Date) earliestSpinner.getValue();
         Date to = (Date) latestSpinner.getValue();
         int nrOfSeats = (int) seatSpinner.getValue();
 
-        Vector<Flight> flights = getSystem().searchFlights(destination,origin, from, to, nrOfSeats);
+        Vector<Flight> flights = getSystem().searchFlights(destination, from, to, nrOfSeats);
         flights.forEach(System.out::println);
         flightList.setListData(flights);
+
+    }
+
+    @Override
+    void postSystem() {
+
+        getSystem().getDestinations().forEach(destinationBox::addItem);
 
     }
 
