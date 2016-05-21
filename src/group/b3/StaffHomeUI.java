@@ -23,7 +23,7 @@ public class StaffHomeUI extends UI
     }
 
     private void checkRevenue(){
-        getSystem().
+
     }
 
     public void openAddFlightUI()
