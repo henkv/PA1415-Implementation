@@ -71,6 +71,10 @@ public class FlightManager {
                           Date arrival) throws Exception
     {
         Flight newFlight = new Flight(origin, destination,baseCost, totalSeats,departure, arrival);
+
+        if (flights.contains(newFlight))
+            throw new Exception("Flight already exists");
+
         flights.add(newFlight);
     }
 }

@@ -107,4 +107,30 @@ public class Flight {
     public void reserveSeats(int nrOfSeats) {
         this.reservedSeats += nrOfSeats;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Flight flight = (Flight) o;
+
+        if (Float.compare(flight.baseCost, baseCost) != 0) return false;
+        if (totalSeats != flight.totalSeats) return false;
+        if (origin != null ? !origin.equals(flight.origin) : flight.origin != null) return false;
+        if (destination != null ? !destination.equals(flight.destination) : flight.destination != null) return false;
+        if (departure != null ? !departure.equals(flight.departure) : flight.departure != null) return false;
+        return arrival != null ? arrival.equals(flight.arrival) : flight.arrival == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = origin != null ? origin.hashCode() : 0;
+        result = 31 * result + (destination != null ? destination.hashCode() : 0);
+        result = 31 * result + (baseCost != +0.0f ? Float.floatToIntBits(baseCost) : 0);
+        result = 31 * result + totalSeats;
+        result = 31 * result + (departure != null ? departure.hashCode() : 0);
+        result = 31 * result + (arrival != null ? arrival.hashCode() : 0);
+        return result;
+    }
 }

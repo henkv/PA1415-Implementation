@@ -95,17 +95,8 @@ public class FlightSystem {
         return booked;
     }
 
-    public boolean addFlight(String origin, String destination, int totalSeats, float baseCost, Date departure, Date arrival)
-    {
-        boolean success = false;
-        try {
-            flightManager.addFlight(origin, destination, totalSeats, baseCost, departure, arrival);
-            success = true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return success;
+    public void addFlight(String origin, String destination, int totalSeats, float baseCost, Date departure, Date arrival) throws Exception {
+        flightManager.addFlight(origin, destination, totalSeats, baseCost, departure, arrival);
     }
 
     public ArrayList<String> getDestinations()
