@@ -22,6 +22,7 @@ public class SearchFlightUI extends UI{
         earliestSpinner.setModel(new SpinnerDateModel(new Date(), null, null, Calendar.YEAR));
         latestSpinner.setModel(new SpinnerDateModel(new Date(), null, null, Calendar.YEAR));
 
+        bookSelectedButton.addActionListener(e -> bookFlight());
         searchButton.addActionListener(e -> searchFlights());
         backButton.addActionListener(e -> back());
     }
@@ -47,6 +48,11 @@ public class SearchFlightUI extends UI{
     private void back()
     {
         getSystem().setUI(new CustomerHomeUI());
+    }
+
+    private void bookFlight()
+    {
+        getSystem().setUI(new BookFlightUI((Flight) flightList.getSelectedValue(), (int) seatSpinner.getValue()));
     }
 
     @Override

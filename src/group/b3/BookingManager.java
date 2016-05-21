@@ -20,9 +20,9 @@ public class BookingManager {
         return revenue;
     }
 
-    public void createBooking(Customer customer, Flight flight, int cost, int nrOfSeats)
+    public void createBooking(Customer customer, Flight flight, float cost, int nrOfSeats)
     {
         Booking newBooking = new Booking(customer, flight, cost, nrOfSeats);
-        this.bookings.add(this.bookings.size(), newBooking);
+        this.bookings.add(newBooking);
     }
 }

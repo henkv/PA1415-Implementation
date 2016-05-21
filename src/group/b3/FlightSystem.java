@@ -8,7 +8,16 @@ public class FlightSystem {
     private User activeUser;
     private ArrayList<User> users;
     private FlightManager flightManager;
+    private BookingManager bookingManager;
     private UIFrame uiFrame;
+
+    public BookingManager getBookingManager() {
+        return bookingManager;
+    }
+
+    public void setBookingManager(BookingManager bookingManager) {
+        this.bookingManager = bookingManager;
+    }
 
     FlightSystem()
     {
@@ -17,6 +26,7 @@ public class FlightSystem {
         users.add(new Customer("customer", "test", 0));
 
         flightManager = new FlightManager();
+        bookingManager = new BookingManager();
 
         uiFrame = new UIFrame();
     }
@@ -67,5 +77,21 @@ public class FlightSystem {
         uiFrame.setUI(ui);
     }
 
+    boolean activeUserBookFlight(Flight flight, float cost, int nrOfSeats) throws Exception
+    {
+        if (!(activeUser instanceof Customer))
+            throw new Exception("Active user is not a customer.");
 
+        Customer customer = (Customer) activeUser;
+        Boolean booked = false;
+
+        if (cost <= customer.getBalance())
+        {
+            bookingManager.createBooking(customer, flight, cost, nrOfSeats);
+            customer.removeMoney(cost);
+            booked = true;
+        }
+
+        return booked;
+    }
 }
