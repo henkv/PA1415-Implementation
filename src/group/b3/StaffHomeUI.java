@@ -11,13 +11,19 @@ public class StaffHomeUI extends UI
 
     public StaffHomeUI()
     {
+
         logOutButton.addActionListener(e -> logOut());
+        checkRevenueButton.addActionListener(e -> checkRevenue());
     }
 
     @Override
     JPanel getContentPanel()
     {
         return this.contentPanel;
+    }
+
+    private void checkRevenue(){
+        getSystem().
     }
 
     public void openAddFlightUI()
