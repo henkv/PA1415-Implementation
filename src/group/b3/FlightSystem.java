@@ -10,6 +10,7 @@ public class FlightSystem {
     private FlightManager flightManager;
     private BookingManager bookingManager;
     private UIFrame uiFrame;
+    private BookingManager bookingManager;
 
     public BookingManager getBookingManager() {
         return bookingManager;

@@ -29,5 +29,7 @@ public class BookingManager {
         Booking newBooking = new Booking(customer, flight, cost, nrOfSeats);
         flight.reserveSeats(nrOfSeats);
         this.bookings.add(newBooking);
+
+        bookings.add(newBooking);
     }
 }
