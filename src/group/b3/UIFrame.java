@@ -2,12 +2,13 @@ package group.b3;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 
 class UIFrame extends JFrame
 {
-    private UI activeUI;
-
     UIFrame()
     {
        this.setLocationRelativeTo(null);
@@ -24,5 +25,4 @@ class UIFrame extends JFrame
         this.revalidate();
         this.repaint();
     }
-
 }

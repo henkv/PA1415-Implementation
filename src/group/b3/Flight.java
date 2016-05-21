@@ -6,8 +6,6 @@ import java.util.concurrent.Exchanger;
 
 public class Flight implements Serializable
 {
-    private static long currentUid = 0;
-    private long uid;
     private String origin;
     private String destination;
     private float baseCost;
@@ -23,7 +21,6 @@ public class Flight implements Serializable
         if (departure.before(now) || arrival.before(departure))
             throw new Exception("Dates are wrong.");
 
-        this.uid = currentUid++;
         this.origin = origin;
         this.destination = destination;
         this.baseCost = baseCost;

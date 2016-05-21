@@ -1,5 +1,6 @@
 package group.b3;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -31,5 +32,30 @@ public class BookingManager {
         this.bookings.add(newBooking);
 
         bookings.add(newBooking);
+    }
+
+
+    public void saveToFile()
+    {
+        try {
+            FileOutputStream fout = new FileOutputStream("bookings.data");
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            oos.writeObject(bookings);
+            fout.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadFromFile()
+    {
+        try {
+            FileInputStream fin = new FileInputStream("bookings.data");
+            ObjectInputStream ois = new ObjectInputStream(fin);
+            bookings = (ArrayList<Booking>) ois.readObject();
+            fin.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

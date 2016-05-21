@@ -1,5 +1,7 @@
 package group.b3;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
@@ -12,28 +14,31 @@ public class FlightSystem {
     private UIFrame uiFrame;
     private SupportTicketManager supportTickets;
 
-    public BookingManager getBookingManager() {
-        return bookingManager;
-    }
-
-    public void setBookingManager(BookingManager bookingManager) {
-        this.bookingManager = bookingManager;
-    }
-
     FlightSystem()
     {
         users = new ArrayList<>();
         users.add(new Staff("staff", "test", 0));
-        users.add(new Customer("customer", "test", 100));
+        users.add(new Customer("customer", "test", 1000));
 
         flightManager = new FlightManager();
         flightManager.loadFromFile();
 
         bookingManager = new BookingManager();
+        bookingManager.loadFromFile();
 
         supportTickets = new SupportTicketManager();
+        supportTickets.loadFromFile();
 
         uiFrame = new UIFrame();
+        uiFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                super.windowClosing(e);
+                flightManager.saveToFile();
+                bookingManager.saveToFile();
+                supportTickets.saveToFile();
+            }
+        });
     }
 
     void setActiveUser(User activeUser)

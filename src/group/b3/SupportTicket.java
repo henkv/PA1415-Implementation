@@ -1,9 +1,10 @@
 package group.b3;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
-public class SupportTicket {
+public class SupportTicket implements Serializable{
     private String message;
     private Customer owner;
     private boolean solved;
@@ -20,16 +21,8 @@ public class SupportTicket {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public Customer getOwner() {
         return owner;
-    }
-
-    public void setOwner(Customer owner) {
-        this.owner = owner;
     }
 
     public boolean isSolved() {
@@ -44,9 +37,6 @@ public class SupportTicket {
         return created;
     }
 
-    public void setCreated(Date created) {
-        this.created = created;
-    }
 
     @Override
     public String toString() {

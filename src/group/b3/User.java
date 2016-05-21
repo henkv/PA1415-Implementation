@@ -1,7 +1,9 @@
 package group.b3;
 
 
-public abstract class User {
+import java.io.Serializable;
+
+public abstract class User implements Serializable{
     private String name;
     private String password;
 
@@ -27,5 +29,4 @@ public abstract class User {
         this.password = password;
     }
 
-    //hej
 }

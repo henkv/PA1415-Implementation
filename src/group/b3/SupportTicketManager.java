@@ -1,5 +1,6 @@
 package group.b3;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -27,5 +28,29 @@ public class SupportTicketManager
         });
 
         return solved;
+    }
+
+    public void saveToFile()
+    {
+        try {
+            FileOutputStream fout = new FileOutputStream("tickets.data");
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            oos.writeObject(tickets);
+            fout.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadFromFile()
+    {
+        try {
+            FileInputStream fin = new FileInputStream("tickets.data");
+            ObjectInputStream ois = new ObjectInputStream(fin);
+            tickets = (ArrayList<SupportTicket>) ois.readObject();
+            fin.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,10 +1,10 @@
 package group.b3;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Booking {
-    private long uid;
+public class Booking implements Serializable {
     private Customer owner;
     private Flight flight;
     private float cost;
@@ -13,20 +13,11 @@ public class Booking {
 
 
     public Booking(Customer owner, Flight flight, float cost, int nrOfSeats) {
-        //this.uid = uid;
         this.owner = owner;
         this.flight = flight;
         this.cost = cost;
         this.nrOfSeats = nrOfSeats;
         this.created = new Date();
-    }
-
-    public long getUid() {
-        return uid;
-    }
-
-    public void setUid(long uid) {
-        this.uid = uid;
     }
 
     public Customer getOwner() {
