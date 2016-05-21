@@ -1,4 +1,5 @@
 package group.b3;
+import java.io.*;
 import java.util.*;
 
 public class FlightManager {
@@ -8,7 +9,7 @@ public class FlightManager {
     {
         flights = new ArrayList<>();
 
-        Calendar cal = Calendar.getInstance();
+        /*Calendar cal = Calendar.getInstance();
         cal.add(Calendar.HOUR, 1);
         Date departure = cal.getTime();
         cal.add(Calendar.HOUR, 4);
@@ -26,8 +27,10 @@ public class FlightManager {
         catch (Exception e)
         {
             e.printStackTrace();
-        }
+        }*/
     }
+
+
 
     public void addFlight(Flight flight){
         flights.add(flight);
@@ -76,5 +79,30 @@ public class FlightManager {
             throw new Exception("Flight already exists");
 
         flights.add(newFlight);
+    }
+
+
+    public void saveToFile()
+    {
+        try {
+            FileOutputStream fout = new FileOutputStream("flights.data");
+            ObjectOutputStream oos = new ObjectOutputStream(fout);
+            oos.writeObject(flights);
+            fout.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadFromFile()
+    {
+        try {
+            FileInputStream fin = new FileInputStream("flights.data");
+            ObjectInputStream ois = new ObjectInputStream(fin);
+            flights = (ArrayList<Flight>) ois.readObject();
+            fin.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

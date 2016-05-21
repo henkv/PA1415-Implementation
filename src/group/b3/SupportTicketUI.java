@@ -1,5 +1,7 @@
 package group.b3;
 
+import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
+
 import javax.swing.*;
 
 
@@ -8,16 +10,15 @@ public class SupportTicketUI extends UI{
     private JPanel contentPanel;
     private JButton backButton;
     private JButton submitButton;
-    private JFormattedTextField ticket;
-    private String ticketBox;
+    private JTextArea textArea;
 
     public SupportTicketUI()
 
     {
-        ticketBox = "Test ticket, plz respond"; //ladda från fil
         submitButton.addActionListener(e -> confirm());
         backButton.addActionListener(e -> back());
-        ticket.setText(ticketBox);
+
+
     }
 
     public void back()
@@ -27,9 +28,8 @@ public class SupportTicketUI extends UI{
 
     public void confirm()
     {
-        ticketBox = ticket.getText();
-        //save text in string save
-        getSystem().setUI(new CustomerHomeUI());
+        getSystem().addTicket(textArea.getText());
+        back();
     }
 
     @Override

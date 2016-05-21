@@ -1,9 +1,11 @@
 package group.b3;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.concurrent.Exchanger;
 
-public class Flight {
+public class Flight implements Serializable
+{
     private static long currentUid = 0;
     private long uid;
     private String origin;

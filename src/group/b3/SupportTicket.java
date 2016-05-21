@@ -47,4 +47,9 @@ public class SupportTicket {
     public void setCreated(Date created) {
         this.created = created;
     }
+
+    @Override
+    public String toString() {
+        return created.toString() + (solved ? " Solved " : " Unsolved ") + " by " + owner.getName();
+    }
 }

@@ -10,6 +10,7 @@ public class FlightSystem {
     private FlightManager flightManager;
     private BookingManager bookingManager;
     private UIFrame uiFrame;
+    private SupportTicketManager supportTickets;
 
     public BookingManager getBookingManager() {
         return bookingManager;
@@ -26,7 +27,11 @@ public class FlightSystem {
         users.add(new Customer("customer", "test", 100));
 
         flightManager = new FlightManager();
+        flightManager.loadFromFile();
+
         bookingManager = new BookingManager();
+
+        supportTickets = new SupportTicketManager();
 
         uiFrame = new UIFrame();
     }
@@ -44,7 +49,7 @@ public class FlightSystem {
         {
             User user = users.get(i);
 
-            if (username.equalsIgnoreCase(user.getName()) && password.equals(user.getPassword()) )
+            if (username.equalsIgnoreCase(user.getName()) && password.equals(user.getPassword()))
             {
                 searchedUser = user;
             }
@@ -102,5 +107,14 @@ public class FlightSystem {
     public ArrayList<String> getDestinations()
     {
         return flightManager.getDestinations();
+    }
+
+    public void addTicket(String text) {
+        supportTickets.addTicket(text, (Customer) activeUser);
+    }
+
+    public Vector<SupportTicket> getUnsolvedTickets()
+    {
+        return supportTickets.getUnsolvedTickets();
     }
 }
