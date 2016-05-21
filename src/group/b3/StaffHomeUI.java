@@ -11,7 +11,7 @@ public class StaffHomeUI extends UI
 
     public StaffHomeUI()
     {
-
+        addFlightButton.addActionListener(e -> openAddFlightUI());
         logOutButton.addActionListener(e -> logOut());
         checkRevenueButton.addActionListener(e -> checkRevenue());
     }
@@ -28,7 +28,7 @@ public class StaffHomeUI extends UI
 
     public void openAddFlightUI()
     {
-
+        getSystem().setUI(new AddFlightUI());
     }
 
 

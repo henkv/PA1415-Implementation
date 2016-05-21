@@ -27,6 +27,7 @@ public class SupportTicketUI extends UI{
 
     public void confirm()
     {
+        ticketBox = ticket.getText();
         //save text in string save
         getSystem().setUI(new CustomerHomeUI());
     }
