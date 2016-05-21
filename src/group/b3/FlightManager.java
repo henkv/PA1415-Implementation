@@ -63,4 +63,14 @@ public class FlightManager {
         return destinations;
     }
 
+    public void addFlight(String origin,
+                          String destination,
+                          int totalSeats,
+                          float baseCost,
+                          Date departure,
+                          Date arrival) throws Exception
+    {
+        Flight newFlight = new Flight(origin, destination,baseCost, totalSeats,departure, arrival);
+        flights.add(newFlight);
+    }
 }
