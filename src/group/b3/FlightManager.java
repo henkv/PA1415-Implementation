@@ -9,14 +9,24 @@ public class FlightManager {
         flights = new ArrayList<>();
 
         Calendar cal = Calendar.getInstance();
-        cal.set(2016, 01, 02, 10, 00);
+        cal.add(Calendar.HOUR, 1);
         Date departure = cal.getTime();
-        cal.set(2016, 01, 02, 20, 00);
+        cal.add(Calendar.HOUR, 4);
         Date arrival = cal.getTime();
 
-        this.flights.add(new Flight("Karlskrona", "Kebnekaise", 100, 50, departure, arrival));
-        this.flights.add(new Flight("Stockholm", "Göteborg", 100, 50, departure, arrival));
-        this.flights.add(new Flight("Ronneby", "Kiruna", 100, 50, departure, arrival));
+        System.out.println(departure);
+        System.out.println(arrival);
+
+        try
+        {
+            this.flights.add(new Flight("Karlskrona", "Kebnekaise", 100, 50, departure, arrival));
+            this.flights.add(new Flight("Stockholm", "Göteborg", 100, 50, departure, arrival));
+            this.flights.add(new Flight("Ronneby", "Kiruna", 100, 50, departure, arrival));
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void addFlight(Flight flight){

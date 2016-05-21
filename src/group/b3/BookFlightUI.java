@@ -17,9 +17,11 @@ public class BookFlightUI extends UI {
     private JButton bookButton;
     private float ticketCost;
     private Flight flight;
+    private int nrOfSeats;
 
     public BookFlightUI(Flight flight, int nrOfSeats)
     {
+        this.nrOfSeats = nrOfSeats;
         this.flight = flight;
         ticketCost = nrOfSeats * flight.calculateCost();
         origin.setText(flight.getOrigin());
@@ -47,6 +49,19 @@ public class BookFlightUI extends UI {
 
     private void bookFlight()
     {
-        getSystem().activeUserBookFlight(flight, ticketCost, )
+
+        try {
+            if (getSystem().activeUserBookFlight(flight, ticketCost, nrOfSeats))
+            {
+                JOptionPane.showMessageDialog(contentPanel, "Flight booked!");
+                getSystem().setUI(new CustomerHomeUI());
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(contentPanel, "Flight not booked, not enough founds! \n You only have " + ((Customer)getSystem().getActiveUser()).getBalance());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

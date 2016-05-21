@@ -1,6 +1,7 @@
 package group.b3;
 
 import java.util.Date;
+import java.util.concurrent.Exchanger;
 
 public class Flight {
     private static long currentUid = 0;
@@ -13,7 +14,13 @@ public class Flight {
     private Date arrival;
     private int reservedSeats;
 
-    public Flight(String origin, String destination, float baseCost, int totalSeats, Date departure, Date arrival) {
+    public Flight(String origin, String destination, float baseCost, int totalSeats, Date departure, Date arrival) throws Exception {
+
+        Date now = new Date();
+
+        if (departure.before(now) || arrival.before(departure))
+            throw new Exception("Dates are wrong.");
+
         this.uid = currentUid++;
         this.origin = origin;
         this.destination = destination;
@@ -95,5 +102,9 @@ public class Flight {
                ", Departure: " + departure +
                ", Arrival: " + arrival +
                ", Cost:" + calculateCost();
+    }
+
+    public void reserveSeats(int nrOfSeats) {
+        this.reservedSeats += nrOfSeats;
     }
 }

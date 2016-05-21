@@ -6,6 +6,10 @@ import java.util.Date;
 public class BookingManager {
     private ArrayList<Booking> bookings;
 
+    public BookingManager() {
+        this.bookings = new ArrayList<>();
+    }
+
     public float getRevenue(Date from, Date to)
     {
         float revenue = 0;
@@ -23,6 +27,7 @@ public class BookingManager {
     public void createBooking(Customer customer, Flight flight, float cost, int nrOfSeats)
     {
         Booking newBooking = new Booking(customer, flight, cost, nrOfSeats);
+        flight.reserveSeats(nrOfSeats);
         this.bookings.add(newBooking);
     }
 }

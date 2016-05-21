@@ -19,8 +19,11 @@ public class SearchFlightUI extends UI{
 
     public SearchFlightUI()
     {
-        earliestSpinner.setModel(new SpinnerDateModel(new Date(), null, null, Calendar.YEAR));
-        latestSpinner.setModel(new SpinnerDateModel(new Date(), null, null, Calendar.YEAR));
+        Calendar now = Calendar.getInstance();
+        earliestSpinner.setModel(new SpinnerDateModel(now.getTime(), null, null, Calendar.YEAR));
+        now.add(Calendar.DAY_OF_MONTH, 14);
+        latestSpinner.setModel(new SpinnerDateModel(now.getTime(), null, null, Calendar.YEAR));
+        seatSpinner.setModel(new SpinnerNumberModel(1, 1, 10, 1));
 
         bookSelectedButton.addActionListener(e -> bookFlight());
         searchButton.addActionListener(e -> searchFlights());

@@ -23,7 +23,7 @@ public class FlightSystem {
     {
         users = new ArrayList<>();
         users.add(new Staff("staff", "test", 0));
-        users.add(new Customer("customer", "test", 0));
+        users.add(new Customer("customer", "test", 100));
 
         flightManager = new FlightManager();
         bookingManager = new BookingManager();
