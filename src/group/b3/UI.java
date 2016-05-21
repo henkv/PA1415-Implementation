@@ -9,12 +9,15 @@ abstract class UI
     public void setSystem(FlightSystem system)
     {
         this.system = system;
+        postSystem();
     }
 
     FlightSystem getSystem()
     {
         return system;
     }
+
+    void postSystem() {};
 
     abstract JPanel getContentPanel();
 }

@@ -2,7 +2,7 @@ package group.b3;
 import java.util.*;
 
 public class FlightManager {
-    public ArrayList<Flight> flights;
+    private ArrayList<Flight> flights;
 
     public FlightManager()
     {
@@ -33,13 +33,12 @@ public class FlightManager {
         flights.add(flight);
     }
 
-    public Vector<Flight> searchFlights(String destination, String origin, Date from, Date to, int nrOfSeats){
+    public Vector<Flight> searchFlights(String destination, Date from, Date to, int nrOfSeats){
         Vector<Flight> availableFlights = new Vector<>();
 
         for (Flight flight : flights)
         {
             if     (flight.getDestination().equals(destination) &&
-                    flight.getOrigin().equals(origin) &&
                     flight.nrOfemptySeats() >= nrOfSeats &&
                     flight.getDeparture().after(from) &&
                     flight.getDeparture().before(to))
@@ -51,5 +50,17 @@ public class FlightManager {
         return availableFlights;
     }
 
+    public ArrayList<String> getDestinations()
+    {
+        ArrayList<String> destinations = new ArrayList<>();
+
+        flights.forEach(f ->
+        {
+            if (!destinations.contains(f.getDestination()))
+                destinations.add(f.getDestination());
+        });
+
+        return destinations;
+    }
 
 }
